@@ -1,9 +1,16 @@
+
+/* =========================================
+   EV MOTORS - COMPLETE CSS
+========================================= */
+
 /* ===== Variables ===== */
 :root {
     --primary: #009e65;
     --primary-dark: #007a4e;
     --text: #000;
     --white: #fff;
+    --gray: #666;
+    --border: #e5e7eb;
 }
 
 /* ===== Reset ===== */
@@ -14,32 +21,41 @@
 }
 
 body {
-    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    font-family: "Segoe UI", system-ui, Arial, sans-serif;
     color: var(--text);
 }
 
 a,
-button {
+button,
+select {
     font-family: inherit;
 }
 
-/* Visible keyboard focus */
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+select:focus-visible {
     outline: 3px solid var(--primary);
     outline-offset: 3px;
 }
 
-/* ===== Header ===== */
+/* =========================================
+   NAVBAR
+========================================= */
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
     padding: 20px 5%;
     background-color: var(--white);
 }
 
-.logo a{
+.logo {
+    flex-shrink: 0;
+}
+
+.logo a {
     font-size: 25px;
     font-weight: bold;
     color: var(--text);
@@ -47,10 +63,12 @@ header {
 }
 
 /* ===== Navigation ===== */
+
 .navigation ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 32px;
     list-style: none;
 }
@@ -84,11 +102,13 @@ header {
     transform: scaleX(1);
 }
 
-/* ===== Header buttons ===== */
+/* ===== Header Buttons ===== */
+
 .header-buttons {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-shrink: 0;
 }
 
 .header-buttons button {
@@ -116,7 +136,9 @@ header {
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
 }
 
 .shop-button:hover {
@@ -124,25 +146,40 @@ header {
     transform: translateY(-2px);
 }
 
-/* ===== Hero ===== */
+/* =========================================
+   HERO SECTION
+========================================= */
+
 .hero {
     background-image:
-        linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.1)),
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.1)
+        ),
         url("carhome.png");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-   
-    display: flex;
-    border-radius: 10px; 
-    align-items: center;
+
     min-height: 600px;
-    padding: 0 5%;
+    padding: 60px 5% 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    border-radius: 10px;
 }
 
+/* ===== Hero Content ===== */
+
 .hero-content {
+    width: 100%;
     max-width: 600px;
     color: var(--white);
+    flex-shrink: 0;
 }
 
 .hero-content h1 {
@@ -161,6 +198,8 @@ header {
     line-height: 1.6;
 }
 
+/* ===== Hero Buttons ===== */
+
 .hero-buttons {
     display: flex;
     align-items: center;
@@ -170,14 +209,18 @@ header {
 }
 
 .hero-buttons a {
+    display: inline-block;
     padding: 14px 28px;
     border: 2px solid transparent;
     border-radius: 999px;
     text-align: center;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease,
-                border-color 0.3s ease, transform 0.3s ease;
+
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.3s ease;
 }
 
 .hero-buttons a:hover {
@@ -205,29 +248,44 @@ header {
     background-color: var(--white);
     color: var(--text);
 }
-.filter{
-    background-color: #fff;
-    margin-top: 450px;
-    margin-right: 500px;
+
+/* =========================================
+   SEARCH FILTER
+========================================= */
+
+.filter {
     display: flex;
     flex-direction: row;
-    width: 90%;
-    max-width: 1600px;
-    border-radius: 7px;
+    align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    border-right:#000 solid;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 1100px;
+    min-height: 76px;
+
+    margin: auto auto 0;
+    padding: 12px 15px;
+
+    background-color: var(--white);
+    border-radius: 15px;
 }
 
-.field{
-   
+/* ===== Filter Field ===== */
+
+.field {
     display: flex;
-    gap: 20px;
-
+    flex: 1;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 0 15px;
+    border-right: 1px solid var(--border);
 }
+
 .field svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     color: #555;
     flex-shrink: 0;
 }
@@ -235,96 +293,124 @@ header {
 .field-content {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 5px;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    min-width: 0;
 }
+
+.field-content label {
+    font-size: 12px;
+    color: #555;
+}
+
 .field select {
+    width: 100%;
+    min-width: 0;
     border: none;
     background: transparent;
-}
-
-/* Benefits Icons */
-.emojy-cart svg {
-    width: 28px;
-    height: 28px;
-    color: #009e65;
-}
-
-.search{
-    background-color: #007a4e;
-    width: 100%;
-    border-radius: 7px;
-    color: #fff;
-    font-size: 20px;
-    transition:  0.3s ease, color 0.3s ease,
-                border-color 0.3s ease, transform 0.3s ease;
-}
-.search:hover{
+    color: var(--text);
+    font-size: 15px;
     cursor: pointer;
-    transform: scaleY(1.05);
-    background-color: #009e65;
-    font-size: 28px;
 }
 
-.emojyes{
+/* ===== Search Button ===== */
+
+.search {
+    width: 150px;
+    min-height: 48px;
+    flex-shrink: 0;
+
+    background-color: var(--primary-dark);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.search:hover {
+    background-color: var(--primary);
+    transform: scale(1.03);
+}
+
+/* =========================================
+   BENEFITS SECTION
+========================================= */
+
+.emojyes {
     display: grid;
-    padding: 40px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
-    max-width: 1200px ;
-    margin: auto;
-    grid-template-columns: repeat(4, 1fr);
+
+    max-width: 1200px;
+    padding: 40px;
+    margin: 0 auto;
 }
-.emojy-cart{
+
+.emojy-cart {
     display: grid;
-    border-radius: 10px;
-    align-items: center;
-    
-    background-color: #fff;
-    padding: 25px;
-    text-align: center;
+    justify-items: center;
+    align-content: center;
     gap: 12px;
-    border: 1px solid #e5e7eb;
-    transition:  0.3s ease, color 0.3s ease,
-                border-color 0.3s ease, transform 0.3s ease;;
+
+    padding: 25px;
+    background-color: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    text-align: center;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
-.emojy-cart:hover{
-    transform: scaleY(1.05);
-    border: 5px solid #e5e7eb;
+
+.emojy-cart:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
+
 .emojy-cart svg {
     width: 32px;
     height: 32px;
-    color: #009e65;
+    color: var(--primary);
     justify-self: center;
 }
 
 .emojy-cart h2 {
     font-size: 18px;
-    color: #111111;
+    color: #111;
     font-weight: 600;
 }
 
 .emojy-cart p {
     font-size: 14px;
-    color: #666666;
+    color: var(--gray);
     line-height: 1.6;
 }
 
-/* Popular Electric Models Section */
+/* =========================================
+   POPULAR ELECTRIC MODELS
+========================================= */
+
 .cars-section {
     padding: 60px 5%;
-    background-color: #fff;
+    background-color: var(--white);
 }
 
-/* Section Header */
+/* ===== Section Header ===== */
+
 .section-header {
     text-align: center;
     margin-bottom: 35px;
 }
 
-/* Title */
 .section-header h2 {
     font-size: 36px;
     font-weight: 700;
@@ -332,246 +418,254 @@ header {
     margin-bottom: 12px;
 }
 
-/* Description */
 .section-header p {
     font-size: 16px;
-    color: #666;
+    color: var(--gray);
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
-.model-filters{
+/* ===== Model Filter Buttons ===== */
+
+.model-filters {
     display: flex;
-    gap: 12px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom:20px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
-.model-filters button{
-    background-color: #fff;
+.model-filters button {
+    background-color: var(--white);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 10px 20px;
-    color: #000;
-    transition: all 0.3s ease-in-out;
-}
-.model-filters button:hover {
-    background-color: #009e65;
-    color: #fff;
-    border-color: #009e65;
-    transform: translateY(-3px);
+
     cursor: pointer;
-}
-.cars-container{
-    display: grid;
-    gap: 20px;
-    max-width: 1200px;
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 auto;
-}
-.card{
-    border: 1px solid #e5e7eba1;
-    border-radius: 12px;
-    overflow: hidden;
-    transition:  0.3s ease, color 0.3s ease,
-                border-color 0.3s ease, transform 0.3s ease;;
-}
-.card:hover{
-    transform: scaleY(1);
-    border: 5px solid #e5e7eb;
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.3s ease;
 }
 
-.card img{
+.model-filters button:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.model-filters button.active {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+}
+
+/* ===== Cars Grid ===== */
+
+.cars-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Car Card ===== */
+
+.card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Car Image ===== */
+
+.card img {
     width: 100%;
     height: 222px;
     object-fit: cover;
     display: block;
 }
 
-/* Card Content */
+/* ===== Card Content ===== */
+
 .card-content {
     padding: 20px;
 }
 
-/* Car Type */
 .car-type {
-    color: #009e65;
+    display: inline-block;
+    color: var(--primary);
     font-size: 13px;
+    margin-bottom: 8px;
 }
 
-/* Car Name */
 .card-content h3 {
     font-size: 20px;
-    color: #111111;
+    color: #111;
+    margin-bottom: 10px;
 }
 
-/* Car Price */
+.card-content p {
+    line-height: 1.6;
+}
+
 .car-price {
-    color: #009e65;
+    color: var(--primary);
     font-size: 22px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
-/* View Details Button */
+/* ===== View Details ===== */
+
 .card-content a {
     display: inline-block;
-    background-color: #009e65;
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
+
     padding: 12px 20px;
     border-radius: 8px;
     text-decoration: none;
     margin-top: 15px;
+
     transition: background-color 0.3s ease;
 }
 
-/* Hover Effect */
 .card-content a:hover {
-    background-color: #007a4e;
+    background-color: var(--primary-dark);
 }
 
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
 
+/* ===== Small Desktop / Laptop ===== */
 
+@media (min-width: 1025px) and (max-width: 1280px) {
 
-
-
-
-
-
-
-
-
-/* ===== Responsive for the EV Motors ===== */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
+    header {
+        padding: 18px 3%;
+        gap: 15px;
     }
-}
 
-/* ===== Responsive (keep these at the END of the file) ===== */
-
-/* Tablet / small laptop */
-@media (max-width: 1024px) {
     .navigation ul {
-        gap: 18px;
+        gap: 16px;
     }
 
     .navigation a {
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .hero {
+        min-height: 550px;
+        padding: 45px 4% 25px;
+    }
+
+    .hero-content {
+        max-width: 520px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 17px;
+    }
+
+    .filter {
+        max-width: 1000px;
+    }
+
+    .field {
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .search {
+        width: 130px;
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+/* ===== Tablet ===== */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
     header {
         flex-direction: column;
         gap: 12px;
-        padding: 16px 5%;
+        padding: 18px 4%;
     }
-    .logo a{
-        color: #000;
-        font-size: 27px;
-        text-decoration: none;
-    }
+
     .navigation ul {
         flex-wrap: wrap;
-        gap: 8px 16px;
+        gap: 12px 18px;
     }
-    .hero {
-        min-height: 520px;
-        background-image:
-            linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.35)),
-            url("carhome.png");
-        background-position: 60% center;
-        flex-direction: column;
-       
-    }
-    .hero-content{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-    }
-    .hero-content h1 , span{
-        display: flex;
-        font-size: 20px;
-        flex-direction: column;
-        text-align: center;
 
+    .navigation a {
+        font-size: 15px;
     }
-    .hero-content p{
-        display: flex;
-        font-size: 14px;
-        justify-content: center;
-        text-align: center;
-    }
-    .hero-buttons {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-    }
-    .filter{
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        height: auto;
-        margin: 0;
-        margin-top: 20px;
-        
-    }
-    .field{
-        width: 100%;
-        padding: 5px 15px;
-    }
-    .field-content{
-        display: flex;
-        align-items: center;
-
-    }
-}
-   
-
-/* ===== Tablet Search Filter ===== */
-@media (min-width: 600px) and (max-width: 768px) {
 
     .hero {
         min-height: 650px;
+        padding: 35px 4% 25px;
+        background-position: 60% center;
     }
+
+    .hero-content {
+        max-width: 520px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    /* Tablet Filter */
 
     .filter {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
 
-        width: 90%;
-        height: auto;
+        width: 100%;
         max-width: 650px;
+        height: auto;
+        min-height: 0;
 
-        margin-top:300px;
+        margin: auto auto 0;
         padding: 15px;
-
         gap: 15px;
-        border-radius: 15px;
     }
 
     .field {
-        display: flex;
         flex: 1;
-        align-items: center;
-
         min-width: 0;
         padding: 10px 5px;
         gap: 8px;
     }
 
     .field-content {
-        display: flex;
-        flex-direction: column;
         align-items: flex-start;
         text-align: left;
         gap: 5px;
@@ -583,110 +677,31 @@ header {
     }
 
     .field select {
-        width: 100%;
         font-size: 12px;
+        width: 100%;
     }
 
     .field svg {
         width: 18px;
         height: 18px;
-        flex-shrink: 0;
     }
 
     .search {
         width: 100%;
         min-height: 44px;
         padding: 10px;
-        border: none;
-        border-radius: 8px;
         font-size: 15px;
-        cursor: pointer;
     }
 
-}
+    /* Benefits */
 
-/* Tablet & Desktop*/
-@media (min-width: 500px) and (max-width: 1290px) {
-    header {
-        padding: 15px 3%;
-        gap: 20px;
-    }
-    .logo a{
-        font-size: 25px;
-        color: #000;
-        text-decoration: none;
-    }
-    .navigation ul {
-        gap: 14px;
-    }
-
-    .navigation a {
-        font-size: 14px;
-    }
-
-    .hero {
-        min-height: 550px;
-        padding: 40px 4% 25px;
-    }
-
-    .hero-content {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .hero-content h1 {
-        font-size: 40px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    .filter {
-        width: 100%;
-        max-width: 100%;
-        gap: 8px;
-    }
-
-    .field {
-        gap: 8px;
-        padding: 0 8px;
-    }
-
-    .search {
-        width: 120px;
-    }
-}
-
-
-/* ===== Benefits Responsive ===== */
-
-/* Tablet */
-@media (min-width: 601px) and (max-width: 1024px) {
     .emojyes {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
         padding: 30px;
-        gap: 20px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .emojyes {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 15px;
     }
 
-    .emojy-cart {
-        padding: 20px;
-    }
-}
-
-/* ===== Cars Section Responsive ===== */
-
-/* Tablet */
-@media (min-width: 601px) and (max-width: 1024px) {
+    /* Cars */
 
     .cars-section {
         padding: 45px 4%;
@@ -711,8 +726,176 @@ header {
     }
 }
 
-/* Mobile */
+/* ===== Mobile ===== */
+
 @media (max-width: 600px) {
+
+    /* Navbar */
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 5%;
+    }
+
+    .logo a {
+        color: var(--text);
+        font-size: 25px;
+        text-decoration: none;
+    }
+
+    .navigation ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 16px;
+    }
+
+    .navigation a {
+        font-size: 14px;
+    }
+
+    .header-buttons {
+        gap: 15px;
+    }
+
+    /* Hero */
+
+    .hero {
+        min-height: 560px;
+        padding: 25px 5% 20px;
+
+        background-image:
+            linear-gradient(
+                rgba(0, 0, 0, 0.65),
+                rgba(0, 0, 0, 0.35)
+            ),
+            url("carhome.png");
+
+        background-position: 60% center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .green {
+        display: block;
+        font-size: inherit;
+    }
+
+    .hero-content p {
+        margin-top: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .hero-buttons a {
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    /* Mobile Filter */
+
+    .filter {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+
+        width: 90%;
+        max-width: 100%;
+        min-height: 0;
+        height: auto;
+
+        margin: 20px auto 0;
+        padding: 8px 10px;
+        gap: 0;
+
+        background-color: var(--white);
+        border-radius: 10px;
+    }
+
+    .field {
+        display: flex;
+        width: 100%;
+        flex: none;
+        align-items: center;
+
+        padding: 5px 12px;
+        gap: 12px;
+
+        border-right: none;
+    }
+
+    .field svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .field-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 5px;
+    }
+
+    .field-content label {
+        font-size: 13px;
+    }
+
+    .field select {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px;
+        font-size: 15px;
+        margin-top: 5px;
+    }
+
+    /* Benefits */
+
+    .emojyes {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .emojy-cart {
+        padding: 20px;
+    }
+
+    /* Cars Section */
 
     .cars-section {
         padding: 40px 20px;
@@ -738,6 +921,8 @@ header {
         line-height: 1.6;
     }
 
+    /* Model Filters */
+
     .model-filters {
         display: flex;
         flex-wrap: wrap;
@@ -749,6 +934,8 @@ header {
         padding: 8px 14px;
         font-size: 13px;
     }
+
+    /* Car Cards */
 
     .card img {
         height: 200px;
@@ -771,5 +958,18 @@ header {
         display: block;
         text-align: center;
         width: 100%;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
     }
 }
