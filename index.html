@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Motors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="#hero">EV Motors</a>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#models">Models</a></li>
+                <li><a href="#charging">Charging</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Header Buttons -->
+        <div class="header-buttons">
+
+            <button type="button" aria-label="Search">
+                <i data-lucide="search" aria-hidden="true"></i>
+            </button>
+
+            <a href="#models" class="shop-button">
+                Shop Now
+            </a>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+
+            <div class="hero-content">
+
+                <h1>
+                    Drive The 
+                    <span class="green"> Future Today</span>
+                </h1>
+
+                <p>
+                    Discover our premium collection of electric
+                    vehicles designed for a smarter, cleaner,
+                    and more exciting driving experience.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#models" class="primary-button">
+                        Explore Models
+                    </a>
+
+                    <a href="#about" class="secondary-button">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Search Filter -->
+            <form class="filter" role="search">
+
+                <!-- Model -->
+                <div class="field">
+                    <i data-lucide="car-front" aria-hidden="true"></i>
+
+                    <div class="field-content">
+                        <label for="model">Car Model</label>
+                        <select id="model" name="model">
+                        <option value="">All Models</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="coupe">Coupe</option>
+                       </select>
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="field">
+                    <i data-lucide="badge-dollar-sign" aria-hidden="true"></i>
+
+                    <div class="field-content">
+                        <label for="price">Car Price</label>
+
+                        <select id="price" name="price">
+                            <option value="">Any Price</option>
+                            <option value="60000">Up to $60,000</option>
+                            <option value="50000">Up to $50,000</option>
+                            <option value="40000">Up to $40,000</option>
+                            <option value="30000">Up to $30,000</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div class="field">
+                    <i data-lucide="map-pin" aria-hidden="true"></i>
+
+                    <div class="field-content">
+                        <label for="location">Location</label>
+
+                        <select id="location" name="location">
+                            <option value="">Any Location</option>
+                            <option value="alexandria">Alexandria</option>
+                            <option value="giza">Giza</option>
+                            <option value="cairo">Cairo</option>
+                            <option value="benha">Benha</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Search Button -->
+                <button class="search" id="search" type="submit">
+                    Search
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="emojyes" aria-label="Our Benefits">
+
+            <div class="emojy-cart">
+                <i data-lucide="leaf" aria-hidden="true"></i>
+                <h2>Zero Emissions</h2>
+                <p>Cleaner air and a healthier environment.</p>
+            </div>
+
+            <div class="emojy-cart">
+                <i data-lucide="zap" aria-hidden="true"></i>
+                <h2>Lower Running Costs</h2>
+                <p>Save more with every electric journey.</p>
+            </div>
+
+            <div class="emojy-cart">
+                <i data-lucide="shield-check" aria-hidden="true"></i>
+                <h2>Advanced Safety</h2>
+                <p>Smart technology for safer driving.</p>
+            </div>
+
+            <div class="emojy-cart">
+                <i data-lucide="plug-zap" aria-hidden="true"></i>
+                <h2>Home Charging</h2>
+                <p>Charge conveniently at home.</p>
+            </div>
+
+        </section>
+       
+<!-- Popular Electric Models -->
+<section class="cars-section" id="models">
+
+    <div class="section-header">
+        <h2>Popular Electric Models</h2>
+        <p>
+            Explore our most popular electric vehicles
+            and find the perfect car for your lifestyle.
+        </p>
+
+        <div class="model-filters">
+            <button type="button" data-filter="all">
+                All Models
+            </button>
+            <button type="button" data-filter="sedan">
+                Sedan
+            </button>
+            <button type="button" data-filter="suv">
+                SUV
+            </button>
+            <button type="button" data-filter="hatchback">
+                Hatchback
+            </button>
+            <button type="button" data-filter="coupe">
+                Coupe
+            </button>
+        </div>
+    </div>
+
+    <div class="cars-container">
+
+        <!-- Tesla Model Y -->
+        <article class="card"
+            id="tesla-model-y"
+            data-model="suv"
+            data-price="50000"
+            data-location="cairo">
+
+            <img
+                src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc5/2027-Tesla-Model-Y-Performance-refresh-MIIT_tn.jpg"
+                alt="Tesla Model Y"
+                loading="lazy">
+
+            <div class="card-content">
+                <span class="car-type">SUV</span>
+                <h3>Tesla Model Y</h3>
+                <p>Modern electric family SUV.</p>
+                <p class="car-price">$50,000</p>
+                <a href="#tesla-model-y">View Details</a>
+            </div>
+        </article>
+
+        <!-- Tesla Model 3 -->
+        <article class="card"
+            id="tesla-model-3"
+            data-model="sedan"
+            data-price="40000"
+            data-location="giza">
+
+            <img
+                src="https://i.i-sgcm.com/new_cars/cars/12847/12847_g139_b.jpg"
+                alt="Tesla Model 3"
+                loading="lazy">
+
+            <div class="card-content">
+                <span class="car-type">Sedan</span>
+                <h3>Tesla Model 3</h3>
+                <p>Stylish electric sedan.</p>
+                <p class="car-price">$40,000</p>
+                <a href="#tesla-model-3">View Details</a>
+            </div>
+        </article>
+
+        <!-- Volkswagen ID.3 -->
+        <article class="card"
+            id="volkswagen-id3"
+            data-model="hatchback"
+            data-price="30000"
+            data-location="alexandria">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/VW_ID.3_-_Elektroauto.jpg?width=800"
+                alt="Volkswagen ID.3"
+                loading="lazy">
+
+            <div class="card-content">
+                <span class="car-type">Hatchback</span>
+                <h3>Volkswagen ID.3</h3>
+                <p>Compact electric city car.</p>
+                <p class="car-price">$30,000</p>
+                <a href="#volkswagen-id3">View Details</a>
+            </div>
+        </article>
+
+        <!-- Polestar 4 -->
+        <article class="card"
+            id="polestar-4"
+            data-model="coupe"
+            data-price="60000"
+            data-location="cairo">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Polestar_4_IMG01.jpg?width=800"
+                alt="Polestar 4"
+                loading="lazy">
+
+            <div class="card-content">
+                <span class="car-type">Coupe SUV</span>
+                <h3>Polestar 4</h3>
+                <p>Premium electric coupe SUV.</p>
+                <p class="car-price">$60,000</p>
+                <a href="#polestar-4">View Details</a>
+            </div>
+        </article>
+
+        <!-- Porsche Taycan -->
+        <article class="card"
+            id="porsche-taycan"
+            data-model="sedan"
+            data-price="60000"
+            data-location="giza">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Porsche_Taycan.jpg?width=800"
+                alt="Porsche Taycan"
+                loading="lazy">
+
+            <div class="card-content">
+                <span class="car-type">Sedan</span>
+                <h3>Porsche Taycan</h3>
+                <p>Luxury electric sports sedan.</p>
+                <p class="car-price">$60,000</p>
+                <a href="#porsche-taycan">View Details</a>
+            </div>
+        </article>
+
+        <!-- Hyundai IONIQ 5 -->
+        <article class="card"
+            id="hyundai-ioniq5"
+            data-model="suv"
+            data-price="40000"
+            data-location="benha">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Hyundai_Ioniq_5.jpg?width=800"
+                alt="Hyundai IONIQ 5"
+                loading="lazy">
+
+            <div class="card-content">
+                <span class="car-type">SUV</span>
+                <h3>Hyundai IONIQ 5</h3>
+                <p>Innovative electric crossover.</p>
+                <p class="car-price">$40,000</p>
+                <a href="#hyundai-ioniq5">View Details</a>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+    </main>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- JavaScript -->
+    <script src="java.js"></script>
+
+</body>
+</html>
